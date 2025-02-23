@@ -1,0 +1,147 @@
+// _archivo.scss
+@import 'variables';
+@import 'mixins';
+
+body {
+    background-color: $background-color !important;
+    color: $text-color !important;
+    margin: 0;
+    font-family: $font-family;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* navbar */
+.img-logo {
+    width: 55px !important;
+}
+
+nav.custom-navbar {
+    margin-bottom: 3rem;
+    border-bottom: 3px solid $border-color;
+    background-image: url(../img/bg-body.jpg);
+    background-size: cover; // Asegura que la imagen cubra todo el fondo
+}
+
+.text-nav {
+    color: $text-color !important;
+    @include transition;
+
+    &:hover {
+        @include hover-effect;
+        color: $hover-color !important;
+    }
+}
+
+li.nav-item {
+    padding-left: 10px;
+}
+
+.navbar-toggler {
+    border: none !important;
+    background-color: transparent !important;
+
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+/* Menu */
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    color: $text-color;
+
+    a {
+        text-decoration: none;
+        color: $text-color;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: underline;
+            color: grey;
+        }
+    }
+}
+
+main {
+    margin-bottom: 3rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1; // Asegura que el contenido principal ocupe el espacio restante
+
+    img {
+        width: 90%;
+        border: 2px solid $text-color;
+        border-radius: 10px;
+    }
+}
+
+/* title */
+#title {
+    margin-bottom: 3rem;
+    color: $text-color;
+}
+
+footer.custom-footer {
+    padding: 2rem !important;
+    background-image: url(../img/bg-body.jpg);
+    background-size: cover; // Asegura que la imagen cubra todo el fondo
+}
+
+.custom-btn {
+    border: 1px solid $button-border-color !important;
+    display: inline-block;
+    padding: 5px 5px !important;
+    background-color: $button-background !important;
+    color: $button-text-color !important;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px !important;
+    border-radius: 5px;
+    margin-top: 10px;
+    @include transition;
+
+    &:hover {
+        box-shadow: $button-hover-shadow;
+        @include hover-effect;
+        color: $button-hover-color !important;
+        background-color: transparent !important;
+    }
+}
+
+/* sobre nosotros */
+#quienes-somos {
+    h2, p, #seccion1 h1 {
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+}
+
+/* contact */
+#quienes-somos {
+    #title-contact {
+        justify-content: center;
+        margin: 50px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-group-item {
+    text-align: center;
+    width: 100%;
+}

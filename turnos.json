@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Juan Pérez",
+        "email": "juan@gmail.com",
+        "phone": "123456789",
+        "service": "Corte de Pelo",
+        "time": "10:00 AM"
+    },
+    {
+        "name": "María López",
+        "email": "maria@gmail.com",
+        "phone": "987654321",
+        "service": "Tintura",
+        "time": "12:00 PM"
+    }
+]
