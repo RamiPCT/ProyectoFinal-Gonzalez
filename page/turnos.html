@@ -10,18 +10,35 @@
     <title>Turnos | Henko Peluquería</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="description" content="Reserva tu turno en nuestra peluquería. Elige el servicio y la hora que más te convenga.">
+    <meta name="keywords" content="peluquería, turnos, reservas, citas">
+    <title>Turnos | Peluquería</title>
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+   
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body class="turnos">
+<body class="d-flex flex-column min-vh-100">
+
+   
     <header class="header-index">
         <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar" role="navigation">
             <div class="container">
+              
                 <a href="../index.html" class="navbar-brand">
-                    <img class="img-logo" src="../img/tijeraheader.png" alt="Logo de Henko - Peluquería y Barbería">
+                    <img class="img-logo" src="../img/tijeraheader.png" alt="Logo de la peluquería">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBar-start">
+
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBar-start" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+               
                 <div class="collapse navbar-collapse" id="navBar-start">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     
@@ -40,6 +57,13 @@
                         <li class="nav-item">
                             <a href="../page/turnos.html" class="nav-link" id="cart-icon" aria-label="Ver turnos reservados">🛒</a>
                         </li>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-nav" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-nav" href="trabajos.html">Trabajos</a></li>
+                        <li class="nav-item"><a class="nav-link text-nav" href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link text-nav" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link text-nav" href="precios.html">Precios</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="turnos.html">🛒</a></li>
                     </ul>
                 </div>
             </div>
@@ -52,11 +76,63 @@
         <ul id="cart-list" class="list-group">
             <!-- Los turnos se cargan acá -->
         </ul>
+    
+    <main class="container text-center flex-grow-1 d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mb-4">Reserva tu Turno</h1>
+        <div class="my-4 w-100" style="max-width: 500px;">
+            <form id="reservation-form" class="text-start">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Número de Teléfono</label>
+                    <input type="tel" class="form-control" id="phone" required>
+                </div>
+
+                <h3 class="mt-4">Selecciona tu turno</h3>
+                <div class="mb-3">
+                    <label for="service" class="form-label">Servicio</label>
+                    <select class="form-select" id="service">
+                        <option value="Corte de cabello">Corte</option>
+                        <option value="Corte y cejas">Corte y cejas</option>
+                        <option value="Color">Color</option>
+                        <option value="Permanente">Permanente</option>
+                        <option value="Global">Global</option>
+                        <option value="Claritos">Claritos</option>
+                        <option value="Peinado">Peinado</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="time" class="form-label">Hora</label>
+                    <input type="time" class="form-control" id="time" required>
+                </div>
+                <button type="button" class="btn btn-primary w-100" onclick="addToCart()">Agregar al carrito</button>
+            </form>
+        </div>
+
+        
+        <div id="reservation-list" class="my-4 w-100" style="max-width: 800px;"></div>
     </main>
 
-    <footer class="text-center p-3 bg-dark text-white mt-auto custom-footer">
+  
+    <footer class="text-center p-3 bg-dark text-white mt-auto">
         <p>Todos los derechos reservados © 2024</p>
+        <div>
+            <a href="https://www.instagram.com" class="btn btn-outline-light m-2">Instagram</a>
+            <a href="https://www.facebook.com" class="btn btn-outline-light m-2">Facebook</a>
+            <a href="https://www.linkedin.com/in/ramiro-gonzalez-20a071168/" class="btn btn-outline-light m-2">Linkedin</a>
+        </div>
     </footer>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+   
     <script src="../js/script.js"></script>
 </body>
 </html>

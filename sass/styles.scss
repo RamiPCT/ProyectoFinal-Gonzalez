@@ -1,147 +1,134 @@
-// _archivo.scss
-@import 'variables';
-@import 'mixins';
+// Variables
+$primary-color: #007bff;
+$secondary-color: #343a40;
+$background-color: #f8f9fa;
+$text-color: #333;
+$white: #fff;
 
+// Mixins
+@mixin box-shadow($shadow) {
+    box-shadow: $shadow;
+}
+
+@mixin transition($property, $duration) {
+    transition: $property $duration ease-in-out;
+}
+
+// Estilos generales
 body {
-    background-color: $background-color !important;
-    color: $text-color !important;
-    margin: 0;
-    font-family: $font-family;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* navbar */
-.img-logo {
-    width: 55px !important;
-}
-
-nav.custom-navbar {
-    margin-bottom: 3rem;
-    border-bottom: 3px solid $border-color;
-    background-image: url(../img/bg-body.jpg);
-    background-size: cover; // Asegura que la imagen cubra todo el fondo
-}
-
-.text-nav {
-    color: $text-color !important;
-    @include transition;
-
-    &:hover {
-        @include hover-effect;
-        color: $hover-color !important;
-    }
-}
-
-li.nav-item {
-    padding-left: 10px;
-}
-
-.navbar-toggler {
-    border: none !important;
-    background-color: transparent !important;
-
-    &:focus {
-        box-shadow: none !important;
-    }
-}
-
-/* Menu */
-.menu {
-    list-style-type: none;
+    font-family: Arial, sans-serif;
+    background-color: $background-color;
+    color: $text-color;
     margin: 0;
     padding: 0;
-    display: flex;
-    gap: 20px;
-    color: $text-color;
+}
 
-    a {
-        text-decoration: none;
+// Header
+.header-index {
+    background-color: $white;
+    @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.custom-navbar {
+    padding: 10px 0;
+}
+
+.img-logo {
+    height: 50px;
+}
+
+.navbar-nav {
+    .nav-link {
         color: $text-color;
-        font-weight: bold;
+        font-weight: 500;
 
-        &:hover {
-            text-decoration: underline;
-            color: grey;
+        &.active {
+            color: $primary-color;
         }
     }
 }
 
-main {
-    margin-bottom: 3rem;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-grow: 1; // Asegura que el contenido principal ocupe el espacio restante
-
-    img {
-        width: 90%;
-        border: 2px solid $text-color;
-        border-radius: 10px;
-    }
+// Contenido principal
+.container {
+    padding: 20px;
 }
 
-/* title */
-#title {
-    margin-bottom: 3rem;
-    color: $text-color;
+h1, h2, h3 {
+    color: $primary-color;
 }
 
-footer.custom-footer {
-    padding: 2rem !important;
-    background-image: url(../img/bg-body.jpg);
-    background-size: cover; // Asegura que la imagen cubra todo el fondo
+
+form {
+    background-color: $white;
+    padding: 20px;
+    border-radius: 8px;
+    @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-.custom-btn {
-    border: 1px solid $button-border-color !important;
-    display: inline-block;
-    padding: 5px 5px !important;
-    background-color: $button-background !important;
-    color: $button-text-color !important;
-    text-align: center;
-    text-decoration: none;
-    font-size: 15px !important;
-    border-radius: 5px;
-    margin-top: 10px;
-    @include transition;
+.form-label {
+    font-weight: 500;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    border: none;
+    @include transition(background-color, 0.3s);
 
     &:hover {
-        box-shadow: $button-hover-shadow;
-        @include hover-effect;
-        color: $button-hover-color !important;
-        background-color: transparent !important;
+        background-color: darken($primary-color, 10%);
     }
 }
 
-/* sobre nosotros */
-#quienes-somos {
-    h2, p, #seccion1 h1 {
-        margin: 10px 0;
-        line-height: 1.6;
+
+#reservation-list {
+    background-color: $white;
+    padding: 20px;
+    border-radius: 8px;
+    @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.reservation-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+
+    &:last-child {
+        border-bottom: none;
     }
 }
 
-/* contact */
-#quienes-somos {
-    #title-contact {
-        justify-content: center;
-        margin: 50px;
-    }
 
-    p {
-        font-size: 18px;
+footer {
+    background-color: $secondary-color;
+    color: $white;
+    padding: 20px 0;
+    margin-top: auto;
+
+    a {
+        color: $white;
+        text-decoration: none;
+        @include transition(color, 0.3s);
+
+        &:hover {
+            color: $primary-color;
+        }
     }
 }
 
-.list-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+body.contacto {
+    background-image: url('../img/fondo-contacto.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.list-group-item {
-    text-align: center;
-    width: 100%;
+body.turnos {
+    background-image: url('../img/fondo-turnos.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
