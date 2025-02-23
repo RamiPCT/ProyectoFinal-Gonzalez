@@ -1,31 +1,31 @@
 // Variables
-$primary-color: #007bff;
-$secondary-color: #343a40;
-$background-color: #f8f9fa;
-$text-color: #333;
-$white: #fff;
+$primary-color: #007bff; // Azul
+$secondary-color: #343a40; // Gris oscuro (color del footer y del menú)
+$body-bg-color: #000000; // Negro (color del body)
+$white: #ffffff; // Blanco (color del texto)
+$border-color: #ddd; // Color de bordes
 
 // Mixins
 @mixin box-shadow($shadow) {
     box-shadow: $shadow;
 }
 
-@mixin transition($property, $duration) {
+@mixin transition($property: all, $duration: 0.3s) {
     transition: $property $duration ease-in-out;
 }
 
 // Estilos generales
 body {
     font-family: Arial, sans-serif;
-    background-color: $background-color;
-    color: $text-color;
+    background-color: $body-bg-color;
+    color: $white;
     margin: 0;
     padding: 0;
 }
 
 // Header
 .header-index {
-    background-color: $white;
+    background-color: $secondary-color; // Mismo color que el footer
     @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
@@ -39,11 +39,17 @@ body {
 
 .navbar-nav {
     .nav-link {
-        color: $text-color;
+        color: $white; // Texto del menú en blanco
         font-weight: 500;
+        @include transition(color);
+
+        &:hover {
+            color: $primary-color; // Azul al pasar el mouse
+        }
 
         &.active {
-            color: $primary-color;
+            color: $primary-color; // Azul para el enlace activo
+            font-weight: bold;
         }
     }
 }
@@ -54,45 +60,50 @@ body {
 }
 
 h1, h2, h3 {
-    color: $primary-color;
+    color: $primary-color; // Títulos en azul
 }
 
-
-form {
-    background-color: $white;
+// Formulario de reserva
+#reservation-form {
+    background-color: $secondary-color; // Fondo del formulario en gris oscuro
     padding: 20px;
     border-radius: 8px;
     @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
+    color: $white; // Texto del formulario en blanco
 
-.form-label {
-    font-weight: 500;
-}
+    .form-label {
+        font-weight: 500;
+    }
 
-.form-control {
-    margin-bottom: 15px;
-}
+    .form-control {
+        background-color: lighten($secondary-color, 10%); // Fondo de los inputs más claro
+        color: $white; // Texto de los inputs en blanco
+        border: 1px solid $primary-color; // Borde azul
+        margin-bottom: 15px;
+    }
 
-.btn-primary {
-    background-color: $primary-color;
-    border: none;
-    @include transition(background-color, 0.3s);
+    .btn-primary {
+        background-color: $primary-color;
+        border: none;
+        @include transition(background-color);
 
-    &:hover {
-        background-color: darken($primary-color, 10%);
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
     }
 }
 
-
+// Lista de reservas
 #reservation-list {
-    background-color: $white;
+    background-color: $secondary-color; // Fondo en gris oscuro
     padding: 20px;
     border-radius: 8px;
     @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    color: $white; // Texto en blanco
 }
 
 .reservation-item {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $border-color;
     padding: 10px 0;
 
     &:last-child {
@@ -100,25 +111,25 @@ form {
     }
 }
 
-
+// Footer
 footer {
-    background-color: $secondary-color;
-    color: $white;
+    background-color: $secondary-color; // Gris oscuro
+    color: $white; // Texto en blanco
     padding: 20px 0;
     margin-top: auto;
 
     a {
         color: $white;
         text-decoration: none;
-        @include transition(color, 0.3s);
+        @include transition(color);
 
         &:hover {
-            color: $primary-color;
+            color: $primary-color; // Azul al pasar el mouse
         }
     }
 }
 
-
+// Estilos adicionales para el fondo (si lo necesitas)
 body.contacto {
     background-image: url('../img/fondo-contacto.jpg'); 
     background-size: cover;
